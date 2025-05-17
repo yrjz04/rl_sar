@@ -111,6 +111,12 @@ target_link_libraries(rl_real_go2
   rl_sdk observation_buffer yaml-cpp
 )
 
+add_executable(rl_real_go2arm src/rl_real_go2arm.cpp )
+target_link_libraries(rl_real_go2arm
+  ${UNITREE_GO2_LIBS}
+  rl_sdk observation_buffer yaml-cpp
+)
+
 ament_target_dependencies(rl_sim
   joint_state_broadcaster
   robot_state_publisher
@@ -130,6 +136,7 @@ install(TARGETS
   observation_buffer
   rl_real_a1
   rl_real_go2
+  rl_real_go2arm
   DESTINATION lib/${PROJECT_NAME}
 )
 
