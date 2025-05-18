@@ -1,7 +1,59 @@
 #include "rl_real_go2arm.hpp"
+#include <unitree/idl/ros2/PointCloud2_.hpp>
+#include <unitree/common/time/time_tool.hpp>
+
+#include <rclcpp/rclcpp.hpp>
+#include <sensor_msgs/msg/point_cloud2.hpp>
 
 // #define PLOT
 #define CSV_LOGGER
+
+#define TOPIC_CLOUD "rt/utlidar/cloud"
+using namespace unitree::robot;
+using namespace unitree::common;
+
+// 添加ROS2节点和发布者声明
+static rclcpp::Node::SharedPtr ros_node;
+static rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr ros_cloud_pub;
+
+void Handler(const void *message, RL_Real& rl_sar) {
+    const sensor_msgs::msg::dds_::PointCloud2_ *cloud_msg = (const sensor_msgs::msg::dds_::PointCloud2_ *)message;
+    // std::cout << "Received a raw cloud here!"
+    //     << "\n\tstamp = " << cloud_msg->header().stamp().sec() << "." << cloud_msg->header().stamp().nanosec()
+    //     << "\n\tframe = " << cloud_msg->header().frame_id()
+    //     << "\n\tpoints number = " << cloud_msg->width()
+    //     << std::endl << std::endl;
+
+    sensor_msgs::msg::dds_::PointCloud2_ processed_cloud = *cloud_msg;
+    rl_sar.PublishCloud(processed_cloud);
+    
+    // 转换为ROS2格式并发布
+    auto ros_cloud = std::make_shared<sensor_msgs::msg::PointCloud2>();
+    ros_cloud->header.stamp.sec = cloud_msg->header().stamp().sec();
+    ros_cloud->header.stamp.nanosec = cloud_msg->header().stamp().nanosec();
+    ros_cloud->header.frame_id = cloud_msg->header().frame_id();
+    ros_cloud->height = cloud_msg->height();
+    ros_cloud->width = cloud_msg->width();
+    ros_cloud->fields.resize(cloud_msg->fields().size());
+    // 复制其他字段数据...
+    for (size_t i = 0; i < cloud_msg->fields().size(); ++i) {
+        const auto& field = cloud_msg->fields()[i];
+        sensor_msgs::msg::PointField& ros_field = ros_cloud->fields[i];
+        ros_field.name = field.name();
+        ros_field.offset = field.offset();
+        ros_field.datatype = field.datatype();
+        ros_field.count = field.count();
+    }
+    ros_cloud->is_bigendian = cloud_msg->is_bigendian();
+    ros_cloud->point_step = cloud_msg->point_step();
+    ros_cloud->row_step = cloud_msg->row_step();
+    ros_cloud->data.resize(cloud_msg->data().size());
+    std::copy(cloud_msg->data().begin(), cloud_msg->data().end(), ros_cloud->data.begin());
+    ros_cloud->is_dense = cloud_msg->is_dense();
+    
+    ros_cloud_pub->publish(*ros_cloud);
+    // std::cout<<"Processed cloud published to ROS2!"<<std::endl;
+}
 
 RL_Real::RL_Real()
 {
@@ -27,6 +79,9 @@ RL_Real::RL_Real()
     }
     this->InitLowCmd();
     // create publisher
+    this->cloud_publisher.reset(new ChannelPublisher<sensor_msgs::msg::dds_::PointCloud2_>("processed_cloud"));
+    this->cloud_publisher->InitChannel();
+
     this->lowcmd_publisher.reset(new ChannelPublisher<unitree_go::msg::dds_::LowCmd_>(TOPIC_LOWCMD));
     this->lowcmd_publisher->InitChannel();
     // create subscriber
@@ -349,10 +404,19 @@ int main(int argc, char **argv)
         exit(-1);
     }
 
+    // 初始化ROS2
+    rclcpp::init(argc, argv);
+    ros_node = std::make_shared<rclcpp::Node>("rl_real_go2arm_lidar");
+    ros_cloud_pub = ros_node->create_publisher<sensor_msgs::msg::PointCloud2>("lidar_points", 10);
+
     ChannelFactory::Instance()->Init(0, argv[1]);
 
-
     RL_Real rl_sar;
+
+    ChannelSubscriber<sensor_msgs::msg::dds_::PointCloud2_> subscriber(TOPIC_CLOUD);
+    subscriber.InitChannel(std::bind(&Handler, std::placeholders::_1, std::ref(rl_sar)));
+
+    
 
     while (1)
     {

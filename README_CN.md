@@ -149,7 +149,7 @@ ros2 run rl_sar rl_real_a1
     ```
 4. Go2支持手柄与键盘控制，方法与上面a1相同
 
-### 训练执行器网络
+### 训练执行器网络x
 
 下面拿A1举例
 
@@ -172,7 +172,7 @@ ros2 run rl_sar rl_real_a1
 2. 将训练好的RL模型文件放到`rl_sar/src/rl_sar/models/<ROBOT>_<PLATFORM>`路径下，并在此路径中新建config.yaml文件，参考`rl_sar/src/rl_sar/models/a1_isaacgym/config.yaml`文件修改其中参数
 3. 按需修改代码中的`forward()`函数，以适配不同的模型
 <!-- 4. 若需要运行仿真，则参考`rl_sar/src/rl_sar/launch`路径下的launch文件自行修改 -->
-4. 若需要运行实物，则参考`rl_sar/src/rl_sar/src/rl_real_a1.cpp`文件自行修改
+4. 若需要运行实物，则参考`rl_sar/src/rl_sar/src/rl_real_a1.cpp`文件自行修改 
 
 ## 贡献
 

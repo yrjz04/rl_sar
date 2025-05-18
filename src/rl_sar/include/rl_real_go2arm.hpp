@@ -14,6 +14,7 @@
 #include <unitree/common/thread/thread.hpp>
 #include <unitree/robot/go2/robot_state/robot_state_client.hpp>
 #include <csignal>
+#include <unitree/idl/ros2/PointCloud2_.hpp>
 
 #include "matplotlibcpp.h"
 namespace plt = matplotlibcpp;
@@ -58,6 +59,10 @@ public:
     RL_Real();
     ~RL_Real();
 
+    void PublishCloud(const sensor_msgs::msg::dds_::PointCloud2_& cloud) {
+        cloud_publisher->Write(cloud);
+    }
+
 private:
     // rl functions
     torch::Tensor Forward() override;
@@ -93,6 +98,8 @@ private:
     unitree_go::msg::dds_::LowCmd_ unitree_low_command{};
     unitree_go::msg::dds_::LowState_ unitree_low_state{};
     unitree_go::msg::dds_::WirelessController_ joystick{};
+
+    ChannelPublisherPtr<sensor_msgs::msg::dds_::PointCloud2_> cloud_publisher;
     ChannelPublisherPtr<unitree_go::msg::dds_::LowCmd_> lowcmd_publisher;
     ChannelSubscriberPtr<unitree_go::msg::dds_::LowState_> lowstate_subscriber;
     ChannelSubscriberPtr<unitree_go::msg::dds_::WirelessController_> joystick_subscriber;

@@ -367,12 +367,13 @@ void RL::KeyboardInterface()
     if (kbhit())
     {
         int c = fgetc(stdin);
+        // std::cout << LOGGER::INFO << "Keyboard input: " << c << std::endl;
         switch (c)
         {
         case '0':
             this->control.control_state = STATE_POS_GETUP;
             break;
-        case 'p':
+        case '2':
             this->control.control_state = STATE_RL_INIT;
             break;
         case '1':

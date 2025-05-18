@@ -28,6 +28,9 @@ find_package(robot_joint_controller REQUIRED)
 find_package(rclpy REQUIRED)
 find_package(gazebo_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 # Make sure to find correct Python version based on ROS distro
 if(DEFINED ENV{ROS_DISTRO})
@@ -117,6 +120,18 @@ target_link_libraries(rl_real_go2arm
   rl_sdk observation_buffer yaml-cpp
 )
 
+add_executable(rl_real_go2arm_Lidar src/rl_real_go2arm_Lidar.cpp)
+target_link_libraries(rl_real_go2arm_Lidar
+  ${UNITREE_GO2_LIBS}
+  rl_sdk observation_buffer yaml-cpp
+)
+
+ament_target_dependencies(rl_real_go2arm_Lidar
+  rclcpp
+  sensor_msgs
+)
+
+
 ament_target_dependencies(rl_sim
   joint_state_broadcaster
   robot_state_publisher
@@ -136,7 +151,7 @@ install(TARGETS
   observation_buffer
   rl_real_a1
   rl_real_go2
-  rl_real_go2arm
+  rl_real_go2arm_Lidar
   DESTINATION lib/${PROJECT_NAME}
 )
 
