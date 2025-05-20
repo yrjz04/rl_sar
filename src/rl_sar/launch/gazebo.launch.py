@@ -74,6 +74,14 @@ def generate_launch_description():
         }],
     )
 
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        output='screen',
+        arguments=['-d', os.path.join(get_package_share_directory('rl_sar'), 'config', 'rviz_config.rviz')]
+    )
+
     return LaunchDescription([
         DeclareLaunchArgument(
             "rname",
@@ -91,4 +99,5 @@ def generate_launch_description():
         joint_state_broadcaster_node,
         robot_joint_controller_node,
         param_node,
+        rviz_node,
     ])

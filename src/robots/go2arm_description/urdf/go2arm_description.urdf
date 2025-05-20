@@ -27,7 +27,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/base.dae" />
+          filename="package://go2arm_description/meshes/trunk.dae" />
       </geometry>
       <material
         name="">
@@ -71,7 +71,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/base_link.dae" />
+          filename="package://go2arm_description/meshes/base_link.dae" />
       </geometry>
       <material
         name="">
@@ -85,7 +85,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/base_link.dae" />
+          filename="package://go2arm_description/meshes/base_link.dae" />
       </geometry>
     </collision>
   </link>
@@ -112,7 +112,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link1.dae" />
+          filename="package://go2arm_description/meshes/link1.dae" />
       </geometry>
       <material
         name="">
@@ -126,7 +126,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link1.dae" />
+          filename="package://go2arm_description/meshes/link1.dae" />
       </geometry>
     </collision>
   </link>
@@ -170,7 +170,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link2.dae" />
+          filename="package://go2arm_description/meshes/link2.dae" />
       </geometry>
       <material
         name="">
@@ -184,7 +184,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link2.dae" />
+          filename="package://go2arm_description/meshes/link2.dae" />
       </geometry>
     </collision>
   </link>
@@ -229,7 +229,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link3.dae" />
+          filename="package://go2arm_description/meshes/link3.dae" />
       </geometry>
       <material
         name="">
@@ -243,7 +243,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link3.dae" />
+          filename="package://go2arm_description/meshes/link3.dae" />
       </geometry>
     </collision>
   </link>
@@ -288,7 +288,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link4.dae" />
+          filename="package://go2arm_description/meshes/link4.dae" />
       </geometry>
       <material
         name="">
@@ -302,7 +302,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link4.dae" />
+          filename="package://go2arm_description/meshes/link4.dae" />
       </geometry>
     </collision>
   </link>
@@ -346,7 +346,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link5.dae" />
+          filename="package://go2arm_description/meshes/link5.dae" />
       </geometry>
       <material
         name="">
@@ -360,7 +360,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link5.dae" />
+          filename="package://go2arm_description/meshes/link5.dae" />
       </geometry>
     </collision>
   </link>
@@ -404,7 +404,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link6.dae" />
+          filename="package://go2arm_description/meshes/link6.dae" />
       </geometry>
       <material
         name="">
@@ -418,7 +418,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link6.dae" />
+          filename="package://go2arm_description/meshes/link6.dae" />
       </geometry>
     </collision>
   </link>
@@ -462,7 +462,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/gripper_base.dae" />
+          filename="package://go2arm_description/meshes/gripper_base.dae" />
       </geometry>
       <material
         name="">
@@ -476,7 +476,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/gripper_base.dae" />
+          filename="package://go2arm_description/meshes/gripper_base.dae" />
       </geometry>
     </collision>
   </link> 
@@ -513,7 +513,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link7.dae" />
+          filename="package://go2arm_description/meshes/link7.dae" />
       </geometry>
       <material
         name="">
@@ -527,7 +527,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link7.dae" />
+          filename="package://go2arm_description/meshes/link7.dae" />
       </geometry>
     </collision>
   </link>
@@ -571,7 +571,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link8.dae" />
+          filename="package://go2arm_description/meshes/link8.dae" />
       </geometry>
       <material
         name="">
@@ -585,7 +585,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="-1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="../meshes/link8.dae" />
+          filename="package://go2arm_description/meshes/link8.dae" />
       </geometry>
     </collision>
   </link>
@@ -706,7 +706,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/hip.dae" />
+          filename="package://go2arm_description/meshes/hip.dae" />
       </geometry>
       <material
         name="">
@@ -761,7 +761,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/thigh.dae" />
+          filename="package://go2arm_description/meshes/thigh.dae" />
       </geometry>
       <material
         name="">
@@ -816,7 +816,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/calf.dae" />
+          filename="package://go2arm_description/meshes/calf.dae" />
       </geometry>
       <material
         name="">
@@ -915,7 +915,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/foot.dae" />
+          filename="package://go2arm_description/meshes/foot.dae" />
       </geometry>
       <material
         name="">
@@ -965,7 +965,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="3.1415 0 0" />
       <geometry>
         <mesh
-          filename="../dae/hip.dae" />
+          filename="package://go2arm_description/meshes/hip.dae" />
       </geometry>
       <material
         name="">
@@ -1020,7 +1020,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/thigh_mirror.dae" />
+          filename="package://go2arm_description/meshes/thigh_mirror.dae" />
       </geometry>
       <material
         name="">
@@ -1075,7 +1075,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/calf_mirror.dae" />
+          filename="package://go2arm_description/meshes/calf_mirror.dae" />
       </geometry>
       <material
         name="">
@@ -1174,7 +1174,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/foot.dae" />
+          filename="package://go2arm_description/meshes/foot.dae" />
       </geometry>
       <material
         name="">
@@ -1224,7 +1224,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 3.1415 0" />
       <geometry>
         <mesh
-          filename="../dae/hip.dae" />
+          filename="package://go2arm_description/meshes/hip.dae" />
       </geometry>
       <material
         name="">
@@ -1279,7 +1279,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/thigh.dae" />
+          filename="package://go2arm_description/meshes/thigh.dae" />
       </geometry>
       <material
         name="">
@@ -1334,7 +1334,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/calf.dae" />
+          filename="package://go2arm_description/meshes/calf.dae" />
       </geometry>
       <material
         name="">
@@ -1433,7 +1433,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/foot.dae" />
+          filename="package://go2arm_description/meshes/foot.dae" />
       </geometry>
       <material
         name="">
@@ -1483,7 +1483,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="3.1415 3.1415 0" />
       <geometry>
         <mesh
-          filename="../dae/hip.dae" />
+          filename="package://go2arm_description/meshes/hip.dae" />
       </geometry>
       <material
         name="">
@@ -1538,7 +1538,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/thigh_mirror.dae" />
+          filename="package://go2arm_description/meshes/thigh_mirror.dae" />
       </geometry>
       <material
         name="">
@@ -1593,7 +1593,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/calf_mirror.dae" />
+          filename="package://go2arm_description/meshes/calf_mirror.dae" />
       </geometry>
       <material
         name="">
@@ -1692,7 +1692,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../dae/foot.dae" />
+          filename="package://go2arm_description/meshes/foot.dae" />
       </geometry>
       <material
         name="">

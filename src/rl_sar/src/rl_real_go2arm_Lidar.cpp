@@ -215,8 +215,8 @@ void RL_Real::RunModel()
     if (this->running_state == STATE_RL_RUNNING)
     {
         this->obs.ang_vel = torch::tensor(this->robot_state.imu.gyroscope).unsqueeze(0);
-        this->obs.commands = torch::tensor({{this->joystick.ly(), -this->joystick.rx(), -this->joystick.lx()}});
-        // this->obs.commands = torch::tensor({{this->control.x, this->control.y, this->control.yaw}});
+        // this->obs.commands = torch::tensor({{this->joystick.ly(), -this->joystick.rx(), -this->joystick.lx()}});
+        this->obs.commands = torch::tensor({{this->control.x, this->control.y, this->control.yaw}});                        //键盘控制
         this->obs.base_quat = torch::tensor(this->robot_state.imu.quaternion).unsqueeze(0);
         this->obs.dof_pos = torch::tensor(this->robot_state.motor_state.q).narrow(0, 0, this->params.num_of_dofs).unsqueeze(0);
         this->obs.dof_vel = torch::tensor(this->robot_state.motor_state.dq).narrow(0, 0, this->params.num_of_dofs).unsqueeze(0);

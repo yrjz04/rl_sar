@@ -19,10 +19,10 @@ RL_Real::RL_Real()
 
     // init robot
     this->InitRobotStateClient();
-    while (this->QueryServiceStatus("sport_mode"))
+    while (this->QueryServiceStatus("mcf"))
     {
-        std::cout << "Try to deactivate the service: " << "sport_mode" << std::endl;
-        this->rsc.ServiceSwitch("sport_mode", 0);
+        std::cout << "Try to deactivate the service: " << "mcf" << std::endl;
+        this->rsc.ServiceSwitch("mcf", 0);
         sleep(1);
     }
     this->InitLowCmd();
@@ -160,8 +160,8 @@ void RL_Real::RunModel()
     if (this->running_state == STATE_RL_RUNNING)
     {
         this->obs.ang_vel = torch::tensor(this->robot_state.imu.gyroscope).unsqueeze(0);
-        this->obs.commands = torch::tensor({{this->joystick.ly(), -this->joystick.rx(), -this->joystick.lx()}});
-        // this->obs.commands = torch::tensor({{this->control.x, this->control.y, this->control.yaw}});
+        // this->obs.commands = torch::tensor({{this->joystick.ly(), -this->joystick.rx(), -this->joystick.lx()}});
+        this->obs.commands = torch::tensor({{this->control.x, this->control.y, this->control.yaw}});
         this->obs.base_quat = torch::tensor(this->robot_state.imu.quaternion).unsqueeze(0);
         this->obs.dof_pos = torch::tensor(this->robot_state.motor_state.q).narrow(0, 0, this->params.num_of_dofs).unsqueeze(0);
         this->obs.dof_vel = torch::tensor(this->robot_state.motor_state.dq).narrow(0, 0, this->params.num_of_dofs).unsqueeze(0);
